@@ -1,0 +1,314 @@
+/* resource.css */
+
+.resource-layout {
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+.nav-role-select {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.4);
+    padding: 5px 15px;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+}
+
+.nav-role-select select {
+    background: transparent;
+    border: none;
+    font-weight: 600;
+    font-family: inherit;
+    outline: none;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.filters select {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--glass-border);
+    background: white;
+    font-family: inherit;
+    outline: none;
+}
+
+/* Resource Grid */
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.resource-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.resource-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.resource-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.resource-card .capacity {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 10px;
+}
+
+.status-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+/* Dynamic States Borders & Badges */
+.status-available {
+    border-color: #10b981; /* Green */
+}
+.status-available .status-badge {
+    background: rgba(16, 185, 129, 0.2);
+    color: #047857;
+}
+
+.status-occupied {
+    border-color: #ef4444; /* Red */
+}
+.status-occupied .status-badge {
+    background: rgba(239, 68, 68, 0.2);
+    color: #b91c1c;
+}
+
+.status-maintain {
+    border-color: #f59e0b; /* Yellow */
+}
+.status-maintain .status-badge {
+    background: rgba(245, 158, 11, 0.2);
+    color: #b45309;
+}
+
+/* Shimmer Loader */
+.shimmer-box {
+    background: #f6f7f8;
+    background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+    background-repeat: no-repeat;
+    background-size: 800px 104px; 
+    animation-duration: 2s;
+    animation-fill-mode: forwards; 
+    animation-iteration-count: infinite;
+    animation-name: placeholderShimmer;
+    animation-timing-function: linear;
+}
+@keyframes placeholderShimmer {
+    0% { background-position: -468px 0; }
+    100% { background-position: 468px 0; }
+}
+
+/* Dashboards */
+.dashboard-view {
+    display: none;
+    margin-top: 30px;
+    animation: fadeIn 0.4s ease;
+}
+.dashboard-view.active {
+    display: block;
+}
+
+.dash-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+}
+
+/* Digital Pass */
+.digital-pass {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: var(--shadow-sm);
+    margin-top: 20px;
+    display: inline-block;
+    border-top: 10px solid var(--primary-color);
+}
+
+.timer-text {
+    font-weight: 700;
+    color: var(--secondary-color);
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.qr-container {
+    margin: 20px auto;
+    padding: 15px;
+    background: white;
+    border: 2px dashed var(--glass-border);
+    display: inline-block;
+}
+
+.btn-pass {
+    background: var(--text-dark);
+    width: 100%;
+}
+
+.progress-bar-bg {
+    background: var(--glass-border);
+    height: 12px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 15px;
+}
+.progress-bar-fill {
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+    height: 100%;
+    border-radius: 10px;
+}
+
+.action-card {
+    background: rgba(255,255,255,0.7);
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid var(--glass-border);
+}
+.icon-huge {
+    font-size: 40px;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+.warning-btn {
+    background: linear-gradient(135deg, #ef4444, #b91c1c);
+}
+
+.mt-20 { margin-top: 20px; }
+.full-w { width: 100%; }
+
+/* Live Feed */
+.live-feed {
+    list-style: none;
+    margin-top: 20px;
+    padding: 0;
+    max-height: 250px;
+    overflow-y: auto;
+}
+.live-feed li {
+    padding: 12px;
+    border-bottom: 1px solid var(--glass-border);
+    font-size: 15px;
+    animation: fadeIn 0.3s ease;
+}
+.badge.green { background: var(--accent-color); color: white; padding: 2px 8px; border-radius: 10px; font-size: 12px; margin-right: 10px;}
+.badge.red { background: #ef4444; color: white; padding: 2px 8px; border-radius: 10px; font-size: 12px; margin-right: 10px;}
+
+/* Toast */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #1f2937;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 9999;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+.toast i {
+    color: var(--accent-color);
+    font-size: 24px;
+}
+
+/* Slide Panel */
+.slide-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    display: none;
+    backdrop-filter: blur(5px);
+}
+.slide-overlay.active { display: block; }
+
+.slide-panel {
+    position: fixed;
+    top: 0; right: -500px;
+    width: 450px; height: 100%;
+    background: var(--bg-color);
+    z-index: 1001;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+    transition: right 0.4s ease;
+    padding: 30px;
+    overflow-y: auto;
+}
+.slide-panel.active { right: 0; }
+@media(max-width: 500px) {
+    .slide-panel { width: 100%; right: -100%; }
+}
+
+.close-btn {
+    position: absolute;
+    top: 25px; right: 25px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-dark);
+}
+
+/* Scanner Mock */
+.scanner-modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 2000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.scanner-box {
+    text-align: center;
+    color: white;
+}
+.scan-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+    animation: pulse 1s infinite alternate;
+}
+@keyframes pulse {
+    0% { transform: scale(1); color: white;}
+    100% { transform: scale(1.1); color: var(--accent-color);}
+}
